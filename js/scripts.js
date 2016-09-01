@@ -6,6 +6,7 @@ var pingPong = function(numberInput) {
 
   else {
     for (var numberIndex = 1; numberIndex <= numberInput; numberIndex++) {
+      numberOutput.push("<li>");
       if (numberIndex % 15 === 0) {
         numberOutput.push("pingPong");
       }
@@ -17,9 +18,10 @@ var pingPong = function(numberInput) {
       } else {
         numberOutput.push(numberIndex);
       }
+      numberOutput.push("</li>");
     }
-
-    return numberOutput.join("<li>");
+    console.log(numberOutput);
+    return numberOutput;
   }
 }
 
@@ -33,7 +35,7 @@ $(document).ready(function() {
     $('#output ul').text("");
     var result = pingPong(numberInput);
 
-    $('#output ul').html("<p> " + result + "</p>");
+    $('#output ul').html(result.join(""));
 
   });
 });
